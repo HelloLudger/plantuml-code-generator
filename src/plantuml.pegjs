@@ -17,6 +17,7 @@ umlline
   / declaration:abstractclassdeclaration newline { return declaration }
   / declaration:memberdeclaration newline { return declaration }
   / declaration:connectordeclaration newline { return declaration }
+  
 hideline
   = noise "hide empty members" noise
 skinparams
@@ -130,3 +131,21 @@ richchars
   = [A-Za-z0-9_:;~#!§$()\[\]\+\-\*\\/|,]+
 richerchars
   = [A-Za-z0-9_:;~#!§$()\[\]\+\-\*\\/|,{} ]+
+
+rdfstatementdeclaration
+  = noise r:rdf_requirement? noise p:rdf_name noise ":" noise r:rdf_name noise c:rdf_cardinality? noise { var RdfStatement = require("./RdfStatement"); return new RdfStatement(r, p, r, c) }
+
+noise "whitespace"
+  = [ \t\n\r]*
+  
+rdf_requirement
+  = "<<" noise item:([a-zA-Z0-9]+) noise ">>" { return item.join("") }
+
+rdf_cardinality
+  = "[" from:[0-9]+ ".." to:[0-9]+ "]" { return {"min": from.join(""), "max": to.join("") } }
+  / "[" from:[0-9]+ ".." to:[n|\*] "]" { return {"min": from.join(""), "max": to } }
+  / "[" to:[0-9]+ "]" { return {"min": to.join(""), "max": to.join("") } }
+  / "[" to:[n|\*] "]" { return {"min": to, "max": to } }
+
+rdf_name
+  = item:([a-zA-Z0-9:_-]+) { return item.join("") }
