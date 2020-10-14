@@ -31,10 +31,10 @@ module.exports = (function () {
 
   RdfStatement.prototype.getFullStatement = function () {
     var statement = "";
-    if (this.sRequirement) statement += "<<"  + this.sRequirement + ">>";
-    statement += " "   + this.sPropertyURI;
+    if (this.sRequirement) statement += "<<"  + this.sRequirement + ">> ";
+    statement += this.sPropertyURI;
     statement += " : " + this.sRangeURI;
-    if (this.sCardinality) statement += "[" + this.sCardinality.min + ".." + this.sCardinality.max + "]";
+    if (this.sCardinality) statement += " [" + this.sCardinality.min + ".." + this.sCardinality.max + "]";
 
     return statement;
   }

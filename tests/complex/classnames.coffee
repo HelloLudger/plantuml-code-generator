@@ -1,30 +1,16 @@
-class someclass
+class rdf:class
 
-
-
-
-class §$noQuotes|_:;~#!§$()[]+-*\/,|
-
-
-
-
-class inQuotes
-
-
-
-
-class AZaz09 |_:;~#!§$()[]+-*\/,{}|
-
-
-
-
-class withDescr1
-# was typed as <<something>>
-
-
-
-class withDescr2
-# was typed as <<some { } thing>>
+  leftside1 : rightside1
+  left:side2 : rightside2
+  leftside3 : right:side3
+  left:side4 : right:side4
+  <<optional>> a:thing : other:thing
+  <<recommended>> a:thing : other:thing [1..1]
+  <<recommended>> a:thing : other:thing [1..2]
+  <<recommended>> a:thing : other:thing [1..*]
+  <<recommended>> a:thing : other:thing [1..n]
+  <<recommended>> a:thing : other:thing [*..*]
+  <<recommended>> a:thing : other:thing [n..n]
 
 
 

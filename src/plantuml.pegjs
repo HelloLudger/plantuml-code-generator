@@ -17,6 +17,7 @@ umlline
   / declaration:abstractclassdeclaration newline { return declaration }
   / declaration:memberdeclaration newline { return declaration }
   / declaration:connectordeclaration newline { return declaration }
+  / declaration:rdfstatementdeclaration newline { return declaration }
   
 hideline
   = noise "hide empty members" noise
@@ -132,12 +133,10 @@ richchars
 richerchars
   = [A-Za-z0-9_:;~#!§$()\[\]\+\-\*\\/|,{} ]+
 
-rdfstatementdeclaration
-  = noise r:rdf_requirement? noise p:rdf_name noise ":" noise r:rdf_name noise c:rdf_cardinality? noise { var RdfStatement = require("./RdfStatement"); return new RdfStatement(r, p, r, c) }
 
-noise "whitespace"
-  = [ \t\n\r]*
-  
+rdfstatementdeclaration
+  = noise req:rdf_requirement? noise prop:rdf_name noise "~>" noise range:rdf_name noise card:rdf_cardinality? noise { var RdfStatement = require("./RdfStatement"); return new RdfStatement(req, prop, range, card) }
+ 
 rdf_requirement
   = "<<" noise item:([a-zA-Z0-9]+) noise ">>" { return item.join("") }
 
