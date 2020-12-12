@@ -2,21 +2,21 @@
 ' node node_modules/pegjs/bin/pegjs src/plantuml.pegjs src/plantuml.js
 ' node plantcode -l coffeescript tests/complex/classnames.plantuml > tests/complex/classnames.coffee
 
-' class someclass
-' 
-' class §$noQuotes|_:;~#!§$()[]+-*\/,| {
-' }
-' 
-' class "inQuotes" {
-' }
-' 
-' class "AZaz09 |_:;~#!§$()[]+-*\/,{}|" {
-' }
-' 
-' class "withDescr1" <<something>>
-' 
-' class "withDescr2" <<some { } thing>> {
-' }
+class someclass
+
+class §$noQuotes|_:;~#!§$()[]+-*\/,| {
+}
+
+class "inQuotes" {
+}
+
+class "AZaz09 |_:;~#!§$()[]+-*\/,{}|" {
+}
+
+class "withDescr1" <<something>>
+
+class "withDescr2" <<some { } thing>> {
+}
 
 class "rdf:class" <<recommended>> {
     leftside1  ~> rightside1
@@ -24,8 +24,8 @@ class "rdf:class" <<recommended>> {
     leftside3  ~> right:side3
     left:side4 ~> right:side4
 
-    <<mandatory>>   dct:description ~> rdfs:Literal
-    <<mandatory>>   dct:description ~> rdfs:Literal
+    <<mandatory>> dct:description ~> rdfs:Literal
+    <<mandatory>> dct:description ~> rdfs:Literal
     <<recommended>> a:thing ~> other:thing [1]
     <<recommended>> a:thing ~> other:thing [1..2]
     <<recommended>> a:thing ~> other:thing [1..*]
@@ -34,18 +34,18 @@ class "rdf:class" <<recommended>> {
     <<recommended>> a:thing ~> other:thing [n]
 }
 
-' class "dcat:Catalog" <<mandatory>> {
-'     <<mandatory>> dct:description ~> rdfs:Literal
-'     <<mandatory>> dct:title ~> rdfs:Literal
-' 
-'     <<recommended>> dct:issued ~> rdfs:Literal [0..1] 
-'     <<recommended>> dct:modified ~> rdfs:Literal [0..1] 
-'     <<recommended>> dct:language ~> dct:LinguisticSystem [*] 
-'     <<recommended>> foaf:homepage ~> foaf:Document [0..1] 
-'     <<recommended>> dct:license ~> dct:LicenseDocument [0..1] 
-' 
-'     <<optional>> dct:spatial ~> dct:Location [*] 
-'     <<optional>> dct:rights ~> dct:RightsStatement [0..1] 
-' }
+class "dcat:Catalog" <<mandatory>> {
+    <<mandatory>> dct:description ~> rdfs:Literal
+    <<mandatory>> dct:title ~> rdfs:Literal
+
+    <<recommended>> dct:issued ~> rdfs:Literal [0..1] 
+    <<recommended>> dct:modified ~> rdfs:Literal [0..1]
+    <<recommended>> dct:language ~> dct:LinguisticSystem [*] 
+    <<recommended>> foaf:homepage ~> foaf:Document [0..1] 
+    <<recommended>> dct:license ~> dct:LicenseDocument [0..1] 
+
+    <<optional>> dct:spatial ~> dct:Location [*] 
+    <<optional>> dct:rights ~> dct:RightsStatement [0..1]
+}
 
 @enduml
