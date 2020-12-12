@@ -10,150 +10,151 @@
 ' }
 ' 
 ' Ab hier rot
+
 class "dcat:Catalog" <<mandatory>> {
-    <<mandatory>> dct:description : rdfs:Literal
-    <<mandatory>> dct:title : rdfs:Literal
+    <<mandatory>> dct:description ~> rdfs:Literal
+    <<mandatory>> dct:title ~> rdfs:Literal
 
-    <<recommended>> dct:issued : rdfs:Literal [0..1] 
-    <<recommended>> dct:modified : rdfs:Literal [0..1] 
-    <<recommended>> dct:language : dct:LinguisticSystem [*] 
-    <<recommended>> foaf:homepage : foaf:Document [0..1] 
-    <<recommended>> dct:license : dct:LicenseDocument [0..1] 
+    <<recommended>> dct:issued ~> rdfs:Literal [0..1] 
+    <<recommended>> dct:modified ~> rdfs:Literal [0..1] 
+    <<recommended>> dct:language ~> dct:LinguisticSystem [*] 
+    <<recommended>> foaf:homepage ~> foaf:Document [0..1] 
+    <<recommended>> dct:license ~> dct:LicenseDocument [0..1] 
 
-    <<optional>> dct:spatial : dct:Location [*] 
-    <<optional>> dct:rights : dct:RightsStatement [0..1] 
+    <<optional>> dct:spatial ~> dct:Location [*] 
+    <<optional>> dct:rights ~> dct:RightsStatement [0..1] 
 }
 
-class "dcat:Dataset" <<mandatory>> {
+class "dcat:Dataset" <<mandatory>> {
     
-    <<mandatory>> "dct:description : rdfs:Literal [1..*]"
-    <<mandatory>> dct:title : rdfs:Literal [1..*] 
+    <<mandatory>> dct:description ~> rdfs:Literal [1..*]
+    <<mandatory>> dct:title ~> rdfs:Literal [1..*] 
 
-    <<recommended>> dcat:contactPoint : vcard:Kind [*] 
-    <<recommended>> dcat:keyword : rdfs:Literal [*] 
-    <<recommended>> dcatde:politicalGeocodingLevelURI : rdfs:Resource [*] 
-    <<recommended>> dcatde:politicalGeocodingURI : rdfs:Resource [*] 
+    <<recommended>> dcat:contactPoint ~> vcard:Kind [*] 
+    <<recommended>> dcat:keyword ~> rdfs:Literal [*] 
+    <<recommended>> dcatde:politicalGeocodingLevelURI ~> rdfs:Resource [*] 
+    <<recommended>> dcatde:politicalGeocodingURI ~> rdfs:Resource [*] 
 
-    <<optional>> dcatde:geocodingDescription : rdfs:Literal [*] 
-    <<optional>> dct:identifier : rdfs:Literal [*] 
-    <<optional>> dct:modified : rdfs:Literal [0..1] 
-    <<optional>> owl:versionInfo : rdfs:Literal [0..1] 
-    <<optional>> dct:issued : rdfs:Literal [0..1] 
-    <<optional>> dcatde:legalBasis : rdfs:Literal [*] 
-    <<optional>> adms:versionNotes : rdfs:Literal [1..*] 
-    <<optional>> dct:relation : rdfs:Resource [*] 
-    <<optional>> dcat:landingPage : foaf:Document [*] 
-    <<optional>> foaf:page : foaf:Document [*] 
-    <<optional>> dct:spatial : dct:Location [*] 
-    <<optional>> dct:language : dct:LinguisticSystem [*] 
-    <<optional>> dct:conformsTo : dct:Standard [*] 
-    <<optional>> dct:accessRights : dct:RightsStatement [0..1] 
-    <<optional>> dct:provenance : dct:ProvenanceStatement [*] 
-    <<optional>> dct:accrualPeriodicity : dct:Frequency [0..1] 
-    <<optional>> dcatde:contributorID : rdfs:Resource [*] 
-    <<optional>> dcatde:qualityProcessURI : rdfs:Resource [0..1] 
+    <<optional>> dcatde:geocodingDescription ~> rdfs:Literal [*] 
+    <<optional>> dct:identifier ~> rdfs:Literal [*] 
+    <<optional>> dct:modified ~> rdfs:Literal [0..1] 
+    <<optional>> owl:versionInfo ~> rdfs:Literal [0..1] 
+    <<optional>> dct:issued ~> rdfs:Literal [0..1] 
+    <<optional>> dcatde:legalBasis ~> rdfs:Literal [*] 
+    <<optional>> adms:versionNotes ~> rdfs:Literal [1..*] 
+    <<optional>> dct:relation ~> rdfs:Resource [*] 
+    <<optional>> dcat:landingPage ~> foaf:Document [*] 
+    <<optional>> foaf:page ~> foaf:Document [*] 
+    <<optional>> dct:spatial ~> dct:Location [*] 
+    <<optional>> dct:language ~> dct:LinguisticSystem [*] 
+    <<optional>> dct:conformsTo ~> dct:Standard [*] 
+    <<optional>> dct:accessRights ~> dct:RightsStatement [0..1] 
+    <<optional>> dct:provenance ~> dct:ProvenanceStatement [*] 
+    <<optional>> dct:accrualPeriodicity ~> dct:Frequency [0..1] 
+    <<optional>> dcatde:contributorID ~> rdfs:Resource [*] 
+    <<optional>> dcatde:qualityProcessURI ~> rdfs:Resource [0..1] 
 }
 
 class "dcat:Distribution" <<recommended>> {
     
-    <<mandatory>> dcat:accessURL : rdfs:Resource [1..*] 
+    <<mandatory>> dcat:accessURL ~> rdfs:Resource [1..*] 
 
-    <<recommended>> dct:title : rdfs:Literal [*] 
-    <<recommended>> dct:modified : rdfs:Literal [0..1] 
-    <<recommended>> dcatde:plannedAvailability : rdfs:Literal [0..1] 
-    <<recommended>> dct:license : dct:LicenseDocument [0..1] 
-    <<recommended>> dct:format : dct:MediaTypeOrExtent [0..1] 
+    <<recommended>> dct:title ~> rdfs:Literal [*] 
+    <<recommended>> dct:modified ~> rdfs:Literal [0..1] 
+    <<recommended>> dcatde:plannedAvailability ~> rdfs:Literal [0..1] 
+    <<recommended>> dct:license ~> dct:LicenseDocument [0..1] 
+    <<recommended>> dct:format ~> dct:MediaTypeOrExtent [0..1] 
 
-    <<optional>> dcatde:licenseAttributionByText : rdfs:Literal [*] 
-    <<optional>> dct:description : rdfs:Literal [*] 
-    <<optional>> dcat:byteSize : rdfs:Literal [0..1] 
-    <<optional>> dct:issued : rdfs:Literal [0..1] 
-    <<optional>> dcat:downloadURL : rdfs:Resource [*] 
-    <<optional>> dct:language : dct:LinguisticSystem [*] 
-    <<optional>> foaf:page : foaf:Document [*] 
-    <<optional>> dct:rights : dct:RightsStatement [0..1] 
-    <<optional>> dct:conformsTo : dct:Standard [*] 
-    <<optional>> dcat:mediaType : dct:MediaTypeOrExtent [0..1] 
+    <<optional>> dcatde:licenseAttributionByText ~> rdfs:Literal [*] 
+    <<optional>> dct:description ~> rdfs:Literal [*] 
+    <<optional>> dcat:byteSize ~> rdfs:Literal [0..1] 
+    <<optional>> dct:issued ~> rdfs:Literal [0..1] 
+    <<optional>> dcat:downloadURL ~> rdfs:Resource [*] 
+    <<optional>> dct:language ~> dct:LinguisticSystem [*] 
+    <<optional>> foaf:page ~> foaf:Document [*] 
+    <<optional>> dct:rights ~> dct:RightsStatement [0..1] 
+    <<optional>> dct:conformsTo ~> dct:Standard [*] 
+    <<optional>> dcat:mediaType ~> dct:MediaTypeOrExtent [0..1] 
 }
 
-class "skos:Concept" <<recommended>> #69B7FD {
+class "skos:Concept" <<recommended>> {
     
-    <<mandatory>> skos:prefLabel : rdfs:Literal [1..*] 
+    <<mandatory>> skos:prefLabel ~> rdfs:Literal [1..*] 
 }
 
 class "skos:ConceptScheme" <<recommended>> {
     
-    <<mandatory>> dct:title : rdfs:Literal [1..*] 
+    <<mandatory>> dct:title ~> rdfs:Literal [1..*] 
 }
 
 class "foaf:Agent" <<mandatory>> {
     
-    <<mandatory>> foaf:name : rdfs:Literal [1..*] 
+    <<mandatory>> foaf:name ~> rdfs:Literal [1..*] 
 }
 
 class "dcat:CatalogRecord" <<optional>> {
     
-    <<mandatory>> dct:modified : rdfs:Literal [1] 
+    <<mandatory>> dct:modified ~> rdfs:Literal [1] 
 
-    <<recommended>> dct:conformsTo : rdfs:Resource [0..1] 
+    <<recommended>> dct:conformsTo ~> rdfs:Resource [0..1] 
 
-    <<optional>> dct:description : rdfs:Literal [*] 
-    <<optional>> dct:title : rdfs:Literal [*] 
-    <<optional>> dct:language : dct:LinguisticSystem [*] 
+    <<optional>> dct:description ~> rdfs:Literal [*] 
+    <<optional>> dct:title ~> rdfs:Literal [*] 
+    <<optional>> dct:language ~> dct:LinguisticSystem [*] 
 }
 
 class "adms:Identifier" <<optional>> {
     
-    <<mandatory>> skos:notation : rdfs:Literal  [0..1]
+    <<mandatory>> skos:notation ~> rdfs:Literal  [0..1]
 }
 
 class "spdx:Checksum" <<optional>> {
     
-    <<mandatory>> spdx:algorithm : rdfs:Resource [1] 
-    <<mandatory>> spdx:checksumValue : rdfs:Literal [1] 
+    <<mandatory>> spdx:algorithm ~> rdfs:Resource [1] 
+    <<mandatory>> spdx:checksumValue ~> rdfs:Literal [1] 
 }
 
 class "dct:PeriodOfTime" <<optional>> {
     
-    <<optional>> schema:startDate : rdfs:Literal [0..1] 
-    <<optional>> schema:endDate : rdfs:Literal [0..1] 
+    <<optional>> schema:startDate ~> rdfs:Literal [0..1] 
+    <<optional>> schema:endDate ~> rdfs:Literal [0..1] 
 }
 
 
 ' ************************Ab hier Relations************************
 
-' Selbstreferenzierungen rot
-"dcat:Catalog"               --> "*"     "dcat:Catalog"       : dct:hasPart 
-"dcat:Catalog"               --> "0..1"  "dcat:Catalog"       : <<optional>> dct:IsPartOf
-"dcat:Dataset"               --> "*"     "dcat:Dataset"       : <<optional>> dct:source
-"dcat:Dataset"               --> "*"     "dcat:Dataset"       : <<optional>> dct:hasVersion
-"dcat:Dataset"               --> "*"     "dcat:Dataset"       : <<optional>> dct:isVersionOf
-"dcat:CatalogRecord"         --> "0..1"  "dcat:CatalogRecord" : <<optional>> dct:source
-
-' Referenzierungen zwischen Hauptklassen
-"dcat:Catalog"               --> "1..*"  "dcat:Dataset"       : <<mandatory>> dcat:dataset 
-"dcat:Dataset"            -----> "*"     "dcat:Distribution"  : <<recommended>> dcat:distribution 
-"dcat:Dataset"            -----> "*"     "dcat:Distribution"  : <<optional>> adms:sample 
-
-' Weitere Referenzierungen
-"dcat:Catalog"               --> "1"     "foaf:Agent"         : <<mandatory>> dct:publisher 
-"dcat:Catalog"              ---> "*"     "skos:ConceptScheme" : <<recommended>> dcat:themeTaxonomy 
-"dcat:Catalog"               --> "*"     "dcat:CatalogRecord" : <<optional>> dcat:record 
-"dcat:Dataset"               --> "0..1"  "foaf:Agent"         : <<recommended>> dct:publisher 
-"dcat:Dataset"               --> "*"     "foaf:Agent"         : <<optional>> dct:creator 
-"dcat:Dataset"               --> "*"     "foaf:Agent"         : <<optional>> dct:contributor 
-"dcat:Dataset"               --> "*"     "foaf:Agent"         : <<optional>> dcatde:originator 
-"dcat:Dataset"               --> "*"     "foaf:Agent"         : <<optional>> dct:maintainer 
-"dcat:Dataset"               --> "*"     "skos:Concept"       : <<recommended>> dcat:theme 
-"dcat:Dataset"               --> "0..1"  "skos:Concept"       : <<optional>> dct:type 
-"dcat:Dataset"               --> "0..1"  "skos:Concept"       : dcat:granularity 
-"dcat:Dataset"               --> "*"     "dct:PeriodOfTime"   : <<optional>> dct:temporal 
-"dcat:Dataset"               --> "*"     "adms:Identifier"    : <<optional>> adms:identifier 
-"dcat:Distribution"          --> "0..1"  "skos:Concept"       : <<optional>> adms:status 
-"dcat:Distribution"          --> "0..1"  "spdx:Checksum"      : <<optional>> spdx:checksum 
-"foaf:Agent"                 --> "0..1"  "skos:Concept"       : <<optional>> dct:type 
-"dcat:CatalogRecord"        ---> "1"     "dcat:Dataset"       : <<mandatory>> foaf:primaryTopic
-"dcat:CatalogRecord"         --> "0..1"  "skos:Concept"       : <<recommended>> adms:status 
-"dcat:CatalogRecord"         --> "0..1"  "skos:Concept"       : <<recommended>> dct:issued 
+' ' Selbstreferenzierungen rot
+' "dcat:Catalog"               --> "*"     "dcat:Catalog"       ~> dct:hasPart 
+' "dcat:Catalog"               --> "0..1"  "dcat:Catalog"       ~> <<optional>> dct:IsPartOf
+' "dcat:Dataset"               --> "*"     "dcat:Dataset"       ~> <<optional>> dct:source
+' "dcat:Dataset"               --> "*"     "dcat:Dataset"       ~> <<optional>> dct:hasVersion
+' "dcat:Dataset"               --> "*"     "dcat:Dataset"       ~> <<optional>> dct:isVersionOf
+' "dcat:CatalogRecord"         --> "0..1"  "dcat:CatalogRecord" ~> <<optional>> dct:source
+' 
+' ' Referenzierungen zwischen Hauptklassen
+' "dcat:Catalog"               --> "1..*"  "dcat:Dataset"       ~> <<mandatory>> dcat:dataset 
+' "dcat:Dataset"            -----> "*"     "dcat:Distribution"  ~> <<recommended>> dcat:distribution 
+' "dcat:Dataset"            -----> "*"     "dcat:Distribution"  ~> <<optional>> adms:sample 
+' 
+' ' Weitere Referenzierungen
+' "dcat:Catalog"               --> "1"     "foaf:Agent"         ~> <<mandatory>> dct:publisher 
+' "dcat:Catalog"              ---> "*"     "skos:ConceptScheme" ~> <<recommended>> dcat:themeTaxonomy 
+' "dcat:Catalog"               --> "*"     "dcat:CatalogRecord" ~> <<optional>> dcat:record 
+' "dcat:Dataset"               --> "0..1"  "foaf:Agent"         ~> <<recommended>> dct:publisher 
+' "dcat:Dataset"               --> "*"     "foaf:Agent"         ~> <<optional>> dct:creator 
+' "dcat:Dataset"               --> "*"     "foaf:Agent"         ~> <<optional>> dct:contributor 
+' "dcat:Dataset"               --> "*"     "foaf:Agent"         ~> <<optional>> dcatde:originator 
+' "dcat:Dataset"               --> "*"     "foaf:Agent"         ~> <<optional>> dct:maintainer 
+' "dcat:Dataset"               --> "*"     "skos:Concept"       ~> <<recommended>> dcat:theme 
+' "dcat:Dataset"               --> "0..1"  "skos:Concept"       ~> <<optional>> dct:type 
+' "dcat:Dataset"               --> "0..1"  "skos:Concept"       ~> dcat:granularity 
+' "dcat:Dataset"               --> "*"     "dct:PeriodOfTime"   ~> <<optional>> dct:temporal 
+' "dcat:Dataset"               --> "*"     "adms:Identifier"    ~> <<optional>> adms:identifier 
+' "dcat:Distribution"          --> "0..1"  "skos:Concept"       ~> <<optional>> adms:status 
+' "dcat:Distribution"          --> "0..1"  "spdx:Checksum"      ~> <<optional>> spdx:checksum 
+' "foaf:Agent"                 --> "0..1"  "skos:Concept"       ~> <<optional>> dct:type 
+' "dcat:CatalogRecord"        ---> "1"     "dcat:Dataset"       ~> <<mandatory>> foaf:primaryTopic
+' "dcat:CatalogRecord"         --> "0..1"  "skos:Concept"       ~> <<recommended>> adms:status 
+' "dcat:CatalogRecord"         --> "0..1"  "skos:Concept"       ~> <<recommended>> dct:issued 
 
 @enduml
