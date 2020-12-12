@@ -1,3 +1,4 @@
+const RdfStatement = require("./RdfStatement");
 
 module.exports = (function () {
 
@@ -76,6 +77,25 @@ module.exports = (function () {
     var aResult = [];
     for (var i = 0, length = this.fileLines.length; i < length; i++) {
       if (!(this.fileLines[i] instanceof Method) && this.fileLines[i] instanceof Field) {
+        aResult.push(this.fileLines[i]);
+      }
+    }
+    return aResult;
+  }
+ 
+  Class.prototype.hasRdfStatements = function () {
+    for (var i = 0, length = this.fileLines.length; i < length; i++) {
+      if (this.fileLines[i] instanceof RdfStatement) {
+        return true;
+      }
+    }
+    return false;
+  }
+ 
+  Class.prototype.getRdfStatements = function () {
+    var aResult = [];
+    for (var i = 0, length = this.fileLines.length; i < length; i++) {
+      if (this.fileLines[i] instanceof RdfStatement) {
         aResult.push(this.fileLines[i]);
       }
     }

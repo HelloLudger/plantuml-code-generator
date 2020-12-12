@@ -184,7 +184,10 @@ function processTemplateFile(config, templateData, dictionary) {
          "getReturnType": true,
          "hasFields": true,
          "hasMethods": true,
-         "needsReturnStatement": true
+         "needsReturnStatement": true,
+         "hasRdfStatements": true,
+         "getRdfStatements": true,
+         "getFullStatement": true,
         }
       }) + os.EOL + os.EOL;
     })
